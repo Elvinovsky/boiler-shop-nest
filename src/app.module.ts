@@ -4,6 +4,9 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeConfigService } from './config/SequelizeConfig.service';
 import { databaseConfig } from './config/configuration';
+import { AuthModule } from './auth/auth.module';
+import { BoilerPartsModule } from './boiler-parts/boiler-parts.module';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 
 @Module({
   imports: [
@@ -13,6 +16,9 @@ import { databaseConfig } from './config/configuration';
     }),
     ConfigModule.forRoot({ load: [databaseConfig] }),
     UsersModule,
+    AuthModule,
+    BoilerPartsModule,
+    ShoppingCartModule,
   ],
 })
 export class AppModule {}

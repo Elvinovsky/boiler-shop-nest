@@ -13,7 +13,7 @@ export class UsersService {
   }
 
   async findOne(filter: {
-    where: { id?: string; name?: string; email?: string };
+    where: { id?: string; username?: string; email?: string };
   }): Promise<User> {
     return this.userModel.findOne({ ...filter });
   }
