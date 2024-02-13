@@ -4,12 +4,10 @@ import {
   Get,
   Header,
   HttpCode,
-  HttpStatus,
-  Param,
   Post,
-  Query,
   UseGuards,
   Request,
+  HttpStatus,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -37,16 +35,6 @@ export class UsersController {
   @Get()
   getAll() {
     return this.usersService.getAll();
-  }
-
-  @Get('id')
-  findOne(
-    @Param('id') id: string,
-    @Query() where: { id?: string; name?: string; email: string },
-  ) {
-    where['id'] = id;
-    const filter = { where };
-    return this.usersService.findOne(filter);
   }
 
   @ApiCreatedResponse({ type: SignUpResponse })

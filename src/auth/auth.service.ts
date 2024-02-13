@@ -15,7 +15,7 @@ export class AuthService {
     if (!passwordValid) throw new UnauthorizedException('Invalid credentials');
 
     if (user && passwordValid)
-      return { userId: user.id, userName: user.username, email: user.email };
+      return { userId: user.id, username: user.username, email: user.email };
 
     return null;
   }

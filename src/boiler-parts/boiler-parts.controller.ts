@@ -42,7 +42,7 @@ export class BoilerPartsController {
 
   @ApiOkResponse({ type: GetBestsellerResponse })
   @UseGuards(AuthenticatedGuard)
-  @Get('bestseller')
+  @Get('bestsellers')
   getBestseller() {
     return this.boilerPartsService.bestseller();
   }

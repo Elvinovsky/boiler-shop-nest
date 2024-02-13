@@ -20,7 +20,7 @@ export class LoginUserResponse {
   })
   user: {
     userId: number;
-    userName: string;
+    username: string;
     email: string;
   };
 
