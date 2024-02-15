@@ -17,6 +17,11 @@ async function bootstrap() {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.enableCors({
+    credentials: true,
+    origin: ['http://localhost:3001'],
+  });
+
   const config = new DocumentBuilder()
     .setTitle('магазин котлов')
     .setDescription('api documentation')
@@ -27,7 +32,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3001);
+  await app.listen(3000);
   console.log('app started');
 }
 bootstrap();
