@@ -34,7 +34,7 @@ export class UsersService {
       return { warningMessage: 'Пользователь с таким именем уже существует' };
 
     if (existingByEmail)
-      return { warningMessage: 'Пользователь с таким емайлом уже существует' };
+      return { warningMessage: 'Пользователь с таким email уже существует' };
 
     const hashedPassword = await bcrypt.hash(createUserDto.password, 12);
 
