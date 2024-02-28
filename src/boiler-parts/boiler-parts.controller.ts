@@ -30,6 +30,7 @@ export class BoilerPartsController {
   @UseGuards(AuthenticatedGuard)
   @Get()
   paginatedAndFilter(@Query() query: IQueryBoilerParts) {
+    console.log(query);
     return this.boilerPartsService.paginatedAndFilter(query);
   }
 

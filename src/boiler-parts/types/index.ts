@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { faker } from '@faker-js/faker';
 import { IsNotEmpty, IsString } from 'class-validator';
+import { Op } from 'sequelize';
 
 export class BoilerParts {
   @ApiProperty({ example: 1 })
@@ -102,4 +103,14 @@ export class GetOneResponse extends BoilerParts {}
 export interface IQueryBoilerParts {
   limit: string;
   offset: string;
+  boiler: string;
+  parts: string;
+  priceFrom: string;
+  priceTo: string;
+}
+
+export interface IBoilerPartsFilter {
+  boiler_manufacturer?: string;
+  parts_manufacturer?: string;
+  price?: { [Op.between]: number[] };
 }
