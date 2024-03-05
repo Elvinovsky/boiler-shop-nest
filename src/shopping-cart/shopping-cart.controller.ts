@@ -4,9 +4,8 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
+  Patch,
   Post,
-  Put,
   UseGuards,
 } from '@nestjs/common';
 import { ShoppingCartService } from './shopping-cart.service';
@@ -43,7 +42,7 @@ export class ShoppingCartController {
   @ApiOkResponse({ type: UpdateCountResponse })
   @ApiBody({ type: UpdateCountRequest })
   @UseGuards(AuthenticatedGuard)
-  @Put('count/:id')
+  @Patch('count/:id')
   updateCount(
     @Body() { count }: { count: number },
     @Param('id') partId: string,
@@ -54,12 +53,12 @@ export class ShoppingCartController {
   @ApiOkResponse({ type: TotalPriceResponse })
   @ApiBody({ type: TotalPriceRequest })
   @UseGuards(AuthenticatedGuard)
-  @Put('total-price/:id')
+  @Patch('total-price/:id')
   updateTotalPrice(
     @Body() { total_price }: { total_price: number },
-    @Param('id') userId: string,
+    @Param('id') partId: string,
   ) {
-    return this.shoppingCartService.updateTotalPrice(total_price, +userId);
+    return this.shoppingCartService.updateTotalPrice(total_price, +partId);
   }
 
   @UseGuards(AuthenticatedGuard)

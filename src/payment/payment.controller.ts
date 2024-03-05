@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { PaymentService } from './payment.service';
 import { MakePaymentDto } from './dto/make-payment.dto';
 import { AuthenticatedGuard } from '../auth/authenticated.guard';
@@ -14,5 +14,12 @@ export class PaymentController {
   @Post()
   makePayment(@Body() makePayment: MakePaymentDto) {
     return this.paymentService.makePayment(makePayment);
+  }
+
+  @ApiOkResponse({ type: MakePaymentResponse })
+  @UseGuards(AuthenticatedGuard)
+  @Get(':paymentId')
+  checkPayment(@Param('paymentId') paymentId: string) {
+    return this.paymentService.checkPayment(paymentId);
   }
 }

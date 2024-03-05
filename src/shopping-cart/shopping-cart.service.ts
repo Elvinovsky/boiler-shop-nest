@@ -41,7 +41,7 @@ export class ShoppingCartService {
 
     const cart = await this.shoppingCartModel.findOne({ where: { partId } });
 
-    return { count: cart.count };
+    return { count: cart?.count };
   }
 
   async updateTotalPrice(

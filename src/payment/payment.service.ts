@@ -26,9 +26,30 @@ export class PaymentService {
           capture: true,
           confirmation: {
             type: 'redirect',
-            return_url: 'http://localhost:3002/order',
+            return_url: 'http://localhost:3001/order',
           },
           description: makePaymentDto.description,
+        },
+      });
+      console.log(data);
+      return data;
+    } catch (e) {
+      throw new ForbiddenException(e);
+    }
+  }
+
+  async checkPayment(paymentId: string) {
+    try {
+      const { data } = await axios({
+        method: 'GET',
+        url: `https://api.yookassa.ru/v3/payments/${paymentId}`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Idempotence-Key': Date.now(),
+        },
+        auth: {
+          username: '332091',
+          password: 'test_dcl6AsaO0ceX27q7I3KTKgJOLRUzRndBEEFi01uKOQ4',
         },
       });
 
