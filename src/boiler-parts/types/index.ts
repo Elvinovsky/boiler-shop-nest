@@ -80,21 +80,9 @@ export class GetNewResponse extends PaginatedAndFilterResponse {
 }
 
 export class SearchResponse extends PaginatedAndFilterResponse {}
-export class SearchRequest {
-  @ApiProperty({ example: 'd' })
-  @IsNotEmpty()
-  @IsString()
-  string: string;
-}
 
 export class GetByNameResponse extends BoilerParts {
   @ApiProperty({ example: 'dildo' })
-  name: string;
-}
-export class GetByNameRequest {
-  @ApiProperty({ example: 'dildo' })
-  @IsNotEmpty()
-  @IsString()
   name: string;
 }
 
@@ -113,4 +101,8 @@ export interface IBoilerPartsFilter {
   boiler_manufacturer?: string;
   parts_manufacturer?: string;
   price?: { [Op.between]: number[] };
+}
+
+export interface IQuerySearchPartsInput {
+  str: string;
 }

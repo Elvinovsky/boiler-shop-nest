@@ -13,6 +13,7 @@ export class PaymentController {
   @UseGuards(AuthenticatedGuard)
   @Post()
   makePayment(@Body() makePayment: MakePaymentDto) {
+    console.log(makePayment);
     return this.paymentService.makePayment(makePayment);
   }
 

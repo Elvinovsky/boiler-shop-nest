@@ -10,17 +10,16 @@ import {
 import { BoilerPartsService } from './boiler-parts.service';
 import {
   GetBestsellerResponse,
-  GetByNameRequest,
   GetByNameResponse,
   GetNewResponse,
   GetOneResponse,
   IQueryBoilerParts,
+  IQuerySearchPartsInput,
   PaginatedAndFilterResponse,
-  SearchRequest,
   SearchResponse,
 } from './types';
 import { AuthenticatedGuard } from '../auth/authenticated.guard';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiQuery } from '@nestjs/swagger';
 
 @Controller('boiler-parts')
 export class BoilerPartsController {
@@ -56,16 +55,29 @@ export class BoilerPartsController {
   }
 
   @ApiOkResponse({ type: SearchResponse })
+  @ApiQuery({
+    name: 'search',
+    type: String,
+    required: true,
+    description: 'String to search',
+  })
   @UseGuards(AuthenticatedGuard)
-  @Post('search')
-  searchStr(@Body() search: SearchRequest) {
-    return this.boilerPartsService.searchByString(search.string);
+  @Get('search')
+  searchStr(@Query() searchStr: IQuerySearchPartsInput) {
+    console.log(searchStr.str);
+    return this.boilerPartsService.searchByString(searchStr.str);
   }
 
   @ApiOkResponse({ type: GetByNameResponse })
+  @ApiQuery({
+    name: 'name',
+    type: String,
+    required: true,
+    description: 'Name of the boiler part',
+  })
   @UseGuards(AuthenticatedGuard)
-  @Post('name')
-  getByName(@Body() { name }: GetByNameRequest) {
-    return this.boilerPartsService.findOneByName(name);
+  @Get('name')
+  getByName(@Query('name') boilerPartsName: string) {
+    return this.boilerPartsService.findOneByName(boilerPartsName);
   }
 }

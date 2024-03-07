@@ -1,26 +1,26 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "sa",
-    "database": "shop",
-    "host": "localhost",
-    "dialect": "postgres",
-    "port": 5433
+    "username": "freedb_elvin",
+    "password": "7rq3S&&gaXqF7C@",
+    "database": "freedb_boiler_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
-    "username": "postgres",
-    "password": "sa",
-    "database": "shop",
-    "host": "localhost",
-    "dialect": "postgres",
-    "port": 5433
+    "username": "freedb_elvin",
+    "password": "7rq3S&&gaXqF7C@",
+    "database": "freedb_boiler_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
   },
   "production": {
-    "username": "postgres",
-    "password": "sa",
-    "database": "shop",
-    "host": "localhost",
-    "dialect": "postgres",
-    "port": 5433
+    "username": "freedb_elvin",
+    "password": "7rq3S&&gaXqF7C@",
+    "database": "freedb_boiler_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
   }
 }

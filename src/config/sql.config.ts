@@ -1,6 +1,7 @@
 import { registerAs } from '@nestjs/config';
 import { Dialect } from 'sequelize';
 import * as process from 'process';
+import { SequelizeModuleOptions } from '@nestjs/sequelize';
 export const sqlConfig = registerAs('database', () => ({
   dialect: <Dialect>process.env.SQL_DIALECT || 'postgres',
   logging: process.env.SQL_LOGGING === 'true',

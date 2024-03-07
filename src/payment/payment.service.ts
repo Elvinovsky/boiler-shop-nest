@@ -26,12 +26,11 @@ export class PaymentService {
           capture: true,
           confirmation: {
             type: 'redirect',
-            return_url: 'http://localhost:3001/order',
+            return_url: 'http://localhost:3001/dashboard',
           },
           description: makePaymentDto.description,
         },
       });
-      console.log(data);
       return data;
     } catch (e) {
       throw new ForbiddenException(e);

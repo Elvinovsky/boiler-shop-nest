@@ -55,9 +55,9 @@ export class BoilerPartsService {
     });
   }
 
-  async findOneByName(name: string): Promise<BoilerParts> {
+  async findOneByName(boilerPartsName: string): Promise<BoilerParts> {
     return this.boilerPartsModel.findOne({
-      where: { name },
+      where: { name: boilerPartsName },
     });
   }
 

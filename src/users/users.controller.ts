@@ -43,6 +43,7 @@ export class UsersController {
   @HttpCode(HttpStatus.CREATED)
   @Header('Content-type', 'application/json')
   createUser(@Body() createUserDto: CreateUserDto) {
+    console.log(createUserDto);
     return this.usersService.create(createUserDto);
   }
 
