@@ -1,15 +1,15 @@
 import { registerAs } from '@nestjs/config';
 import { Dialect } from 'sequelize';
 import * as process from 'process';
-import { SequelizeModuleOptions } from '@nestjs/sequelize';
 export const sqlConfig = registerAs('database', () => ({
-  dialect: <Dialect>process.env.SQL_DIALECT || 'postgres',
+  dialect: <Dialect>process.env.SQL_DIALECT || 'mysql',
   logging: process.env.SQL_LOGGING === 'true',
-  host: process.env.DATABASE_HOST,
-  port: Number(process.env.DATABASE_PORT),
-  username: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-  autoLoadEntities: true,
+  host: process.env.DATABASE_HOST || 'sql.freedb.tech',
+  port: Number(process.env.DATABASE_PORT) || 3306,
+  username: process.env.DATABASE_USER || 'freedb_elvin',
+  password: process.env.DATABASE_PASSWORD || '7rq3S&&gaXqF7C@',
+  database: process.env.DATABASE_NAME || 'freedb_boiler_shop',
+  autoLoadEntities: false,
   synchronize: true,
+  ssl: { rejectUnauthorized: false },
 }));
