@@ -20,6 +20,7 @@ async function bootstrap() {
       cookie: { httpOnly: true },
     }),
   );
+
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -29,6 +30,7 @@ async function bootstrap() {
       'https://boiler-shop-client-one.vercel.app',
       'https://boiler-shop-client-git-main-elvinovsky.vercel.app',
       'https://boiler-shop-client-production.up.railway.app',
+      'http://localhost:3001',
     ],
   });
 
