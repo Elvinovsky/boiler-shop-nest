@@ -12,11 +12,21 @@ export class SequelizeConfigService implements SequelizeOptionsFactory {
 
   createSequelizeOptions(): SequelizeModuleOptions {
     const {
-      sql: { dialect, logging, host, port, username, password, database },
+      sql: {
+        dialect,
+        logging,
+        host,
+        port,
+        username,
+        password,
+        database,
+        dialectModule,
+      },
     } = this.configService.get('database');
 
     return {
       dialect,
+      dialectModule,
       logging,
       host,
       port,

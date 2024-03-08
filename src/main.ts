@@ -25,7 +25,11 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3001'],
+    origin: [
+      'https://boiler-shop-client-one.vercel.app',
+      'https://boiler-shop-client-git-main-elvinovsky.vercel.app',
+      'https://boiler-shop-client-oq4gbpbna-elvinovsky.vercel.app/',
+    ],
   });
 
   const config = new DocumentBuilder()
