@@ -26,7 +26,8 @@ export class PaymentService {
           capture: true,
           confirmation: {
             type: 'redirect',
-            return_url: 'http://localhost:3001/dashboard',
+            return_url:
+              'https://boiler-shop-client-production.up.railway.app/dashboard',
           },
           description: makePaymentDto.description,
         },
